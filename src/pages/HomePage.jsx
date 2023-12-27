@@ -4,7 +4,9 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import TopbarTemplate from "../templates/TopbarTemplate";
 import FooterTemplate from "../templates/FooterTemplate";
-import { celsiusToFahrenheit, displayToast, willRain } from "../utils/utils";
+import {
+  celsiusToFahrenheit, displayToast, kelvinToCelsius, willRain,
+} from "../utils/utils";
 import SpinnerTemplate from "../templates/SpinnerTemplate";
 import messages from "../utils/messages";
 import TopRedirectButtonTemplate from "../templates/TopredirectbuttonTemplate";
@@ -72,9 +74,9 @@ export default function HomePage() {
             />
             {
               !temperatureType || temperatureType === "celsius" ? (
-                <div className="text-lg">{(weather.main.temp - 273.15).toFixed(2)} °C</div>
+                <div className="text-lg">{(kelvinToCelsius(weather.main.temp)).toFixed(2)} °C</div>
               ) : (
-                <div className="text-lg">{(celsiusToFahrenheit(weather.main.temp - 273.15)).toFixed(2)} °F</div>
+                <div className="text-lg">{(celsiusToFahrenheit(kelvinToCelsius(weather.main.temp))).toFixed(2)} °F</div>
               )
             }
           </div>

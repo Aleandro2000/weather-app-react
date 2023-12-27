@@ -28,4 +28,8 @@ export const fahrenheitToCelsius = (fahrenheit) => ((fahrenheit - 32) * 5) / 9;
 
 export const celsiusToFahrenheit = (celsius) => (celsius * 9) / 5 + 32;
 
+export const celsiusToKelvin = (celsius) => celsius + 273.15;
+
+export const kelvinToCelsius = (kelvin) => kelvin - 273.15;
+
 export const willRain = (weatherData) => weatherData && weatherData.rain && Object.values(weatherData.rain).some((value) => value > 0);
