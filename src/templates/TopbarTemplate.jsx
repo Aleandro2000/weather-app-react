@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faTemperatureHalf } from "@fortawesome/free-solid-svg-icons";
 import { Menu, Transition } from "@headlessui/react";
+import { TemperatureTypeContext } from "../contexts/temperature.context";
 
 export default function TopbarTemplate() {
-  const [isSticky, setSticky] = useState(false);
+  const [temperatureType, setTemparatureType] = useContext(TemperatureTypeContext);
 
-  const handleScroll = () => {
-    setSticky(window.scrollY > 0);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const handleChangeTemperatureType = (type) => () => setTemparatureType(type);
 
   return (
-    <div className={`bg-gray-100 text-black p-4 ${isSticky ? "fixed top-0 w-full z-10 shadow-md" : ""}`}>
+    <div className="bg-gray-100 text-black shadow-md p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <img src="/logo192.png" alt="Weather App Logo" className="w-10 h-10 mr-2" />
@@ -44,24 +36,28 @@ export default function TopbarTemplate() {
                     <div className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <span
+                          <button
+                            type="button"
+                            onClick={handleChangeTemperatureType("celsius")}
                             className={`${
-                              active ? "bg-gray-100" : ""
-                            } block px-4 py-2 text-sm text-gray-700`}
+                              active || !temperatureType || temperatureType === "celsius" ? "bg-gray-100" : ""
+                            } block px-4 py-2 text-sm text-gray-700 w-full text-left`}
                           >
-                            Option 1
-                          </span>
+                            Celsius
+                          </button>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <span
+                          <button
+                            type="button"
+                            onClick={handleChangeTemperatureType("fahrenheit")}
                             className={`${
-                              active ? "bg-gray-100" : ""
-                            } block px-4 py-2 text-sm text-gray-700`}
+                              active || temperatureType === "fahrenheit" ? "bg-gray-100" : ""
+                            } block px-4 py-2 text-sm text-gray-700 w-full text-left`}
                           >
-                            Option 2
-                          </span>
+                            Fahrenheit
+                          </button>
                         )}
                       </Menu.Item>
                     </div>

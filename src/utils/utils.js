@@ -23,3 +23,9 @@ export const displayToast = (title, text, type = true) => Toast.fire({
   title,
   text,
 });
+
+export const fahrenheitToCelsius = (fahrenheit) => ((fahrenheit - 32) * 5) / 9;
+
+export const celsiusToFahrenheit = (celsius) => (celsius * 9) / 5 + 32;
+
+export const willRain = (weatherData) => weatherData && weatherData.rain && Object.values(weatherData.rain).some((value) => value > 0);

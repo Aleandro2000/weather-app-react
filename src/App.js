@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import NotfoundPage from "./pages/NotfoundPage";
+import { TemperatureTypeContext } from "./contexts/temperature.context";
 
 const router = createBrowserRouter([
   {
@@ -15,5 +16,11 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  const [temperatureType, setTemperatureType] = useState();
+
+  return (
+    <TemperatureTypeContext.Provider value={[temperatureType, setTemperatureType]}>
+      <RouterProvider router={router} />
+    </TemperatureTypeContext.Provider>
+  );
 }
