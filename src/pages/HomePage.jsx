@@ -61,7 +61,7 @@ export default function HomePage() {
         </button>
       </form>
       {weather && (
-        <div className="bg-gray-100 p-6 rounded-lg rounded-lg shadow-md max-w-3xl w-full mx-auto my-4">
+        <div className="bg-gray-100 p-6 rounded-lg rounded-lg shadow-md max-w-3xl w-full mx-auto my-4 border-2 border-gray-200">
           <div className="text-2xl font-semibold mb-2">{weather.name}</div>
           <div className="text-gray-600">{weather.weather[0].description}</div>
           <div className="flex items-center mt-4">

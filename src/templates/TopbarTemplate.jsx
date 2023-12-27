@@ -10,7 +10,7 @@ export default function TopbarTemplate() {
   const handleChangeTemperatureType = (type) => () => setTemparatureType(type);
 
   return (
-    <div className="bg-gray-100 text-black shadow-md p-4">
+    <div className="bg-gray-100 text-black shadow-md p-4 border-b-2 border-gray-200">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <img src="/logo192.png" alt="Weather App Logo" className="w-10 h-10 mr-2" />
