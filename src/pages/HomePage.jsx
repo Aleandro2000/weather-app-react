@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../contexts/weather.context";
 import TopbarTemplate from "../templates/TopbarTemplate";
+import FooterTemplate from "../templates/FooterTemplate";
 
 export default function HomePage() {
   const [weather, setWeather] = useContext(WeatherContext);
@@ -11,6 +12,7 @@ export default function HomePage() {
   return (
     <div className="fade-in">
       <TopbarTemplate />
+      <FooterTemplate />
     </div>
   );
 }
