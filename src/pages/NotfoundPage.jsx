@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 import TopRedirectButtonTemplate from "../templates/TopredirectbuttonTemplate";
+import FooterTemplate from "../templates/FooterTemplate";
 
 export default function NotfoundPage() {
   return (
-    <div className="fade-in">
+    <div className="fade-in" data-testid="notfound">
       <div className="flex flex-col items-center justify-center text-center h-screen">
         <span className="max-w-md px-10">
           <img src="/logo192.png" alt="Weather App Logo" />
@@ -18,6 +19,7 @@ export default function NotfoundPage() {
         </Link>
       </div>
       <TopRedirectButtonTemplate />
+      <FooterTemplate />
     </div>
   );
 }

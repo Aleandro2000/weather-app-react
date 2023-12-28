@@ -40,9 +40,9 @@ export default function HomePage() {
   };
 
   return (
-    <div className="fade-in">
+    <div className="fade-in" data-testid="home">
       <TopbarTemplate />
-      <div className="text-3xl text-center font-bold max-w-lg mx-auto my-12 px-5">
+      <div className="text-3xl text-center font-bold max-w-lg mx-auto mb-12 mt-24 px-5">
         Write the location where you want to know the weather
       </div>
       <form onSubmit={handleSubmit} className="relative max-w-md mx-auto px-5">
